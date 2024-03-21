@@ -1,5 +1,4 @@
-#include "../include/utils.h"
-#include "../include/player.hpp"
+#include "../include/ball.hpp"
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
@@ -9,21 +8,24 @@ int main()
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Arkanoid");
     SetTargetFPS(60);
 
-    Player p1({25, SCREEN_WIDTH / 2});
+    Player player({SCREEN_WIDTH / 2, SCREEN_HEIGHT - 50});
+    Ball ball({SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2});
 
     while (!WindowShouldClose())
     {
-        p1.goLeft(KEY_A);
-        p1.goRight(KEY_D);
-        
+        player.goLeft(KEY_A);
+        player.goRight(KEY_D);
+        player.setBoundary();
+
         BeginDrawing();
         {
             ClearBackground(BLACK);
-            p1.drawPlayer();
+            ball.updateBall(player);
+            player.drawPlayer();
+            ball.drawBall();
         }
         EndDrawing();
     }
-
     CloseWindow();
 
     return 0;

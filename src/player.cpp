@@ -1,8 +1,5 @@
 #include "../include/player.hpp"
 
-const Vector2 Player::PLAYER_SIZE = {100.0f, 10.0f};
-const float Player::SPEED = 7.f;
-
 Player::Player(const Vector2 &playerPos) : playerPos(playerPos) {}
 
 Player::~Player() {}
@@ -10,6 +7,10 @@ Player::~Player() {}
 Vector2 Player::getPosition() const
 {
     return playerPos;
+}
+
+Vector2 Player::getPlayerSize() const {
+    return PLAYER_SIZE;
 }
 
 void Player::goLeft(const KeyboardKey &key)
