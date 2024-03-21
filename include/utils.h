@@ -12,7 +12,7 @@
 #ifndef UTILS_HEADER
 #define UTILS_HEADER
 
-#include <raylib.h>
-#include <raymath.h>
+#include "../deps/raylib/include/raylib.h"
+#include "../deps/raylib/include/raymath.h"
 
 #endif // !UTILS_HEADER
